@@ -10,5 +10,11 @@
   <%= @account.user_id %>
 </p>
 
+<dt>Amount:</dt>
+<dd><%= @transaction.amount %></dd>
+
+<td><%= account.balance %></td>
+
+
 <%= link_to 'Edit', edit_account_path(@account) %> |
 <%= link_to 'Back', accounts_path %>
