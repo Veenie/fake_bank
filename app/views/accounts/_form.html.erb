@@ -11,6 +11,7 @@
     </div>
   <% end %>
 
+  <%= form.collection_select(:user_id, User.all, :id, :email ) %>
   
   <div class="field">
     <%= form.label :name %>
