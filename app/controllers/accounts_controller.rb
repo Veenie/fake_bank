@@ -1,5 +1,6 @@
 class AccountsController < ApplicationController
   before_action :set_account, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!
 
   # GET /accounts or /accounts.json
   def index
@@ -22,6 +23,7 @@ class AccountsController < ApplicationController
   # POST /accounts or /accounts.json
   def create
     @account = Account.new(account_params)
+    @account.user = current_user
 
     respond_to do |format|
       if @account.save
@@ -64,6 +66,6 @@ class AccountsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def account_params
-      params.require(:account).permit(:name, :user_id)
+      params.require(:account).permit(:name)
     end
 end
