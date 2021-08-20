@@ -3,15 +3,10 @@ class Account < ApplicationRecord
   has_many :transactions
 
 
-  after_initialize :default_values
- 
-  def default_values
 
-    self.balance ||= 500.00
-  end
 
   def balance
-    self.transactions.sum(:amount)
+    self.transactions.sum(:amount) 
   end
 
 

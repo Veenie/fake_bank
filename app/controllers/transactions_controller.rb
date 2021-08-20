@@ -21,6 +21,10 @@ class TransactionsController < ApplicationController
 
   # POST /transactions or /transactions.json
   def create
+    @last = Transaction.order("created_at").last
+    # if @last < 5.minutes.ago && params[:amount] > 1000
+    #   flash.alert = "Cannot transfer over $1000 within 5 minutes"
+    # end
     @transaction = Transaction.new(transaction_params)
 
     respond_to do |format|

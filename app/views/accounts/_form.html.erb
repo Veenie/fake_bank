@@ -12,16 +12,13 @@
   <% end %>
 
   <%= form.collection_select(:user_id, User.all, :id, :email ) %>
-  
+
   <div class="field">
-    <%= form.label :name %>
+    <%= form.label "Account Type" %>
     <%= form.text_field :name %>
   </div>
 
-  <div class="field">
-    <%= form.label :user_id %>
-    <%= form.text_field :user_id %>
-  </div>
+
 
   <div class="actions">
     <%= form.submit %>
